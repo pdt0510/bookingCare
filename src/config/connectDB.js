@@ -4,6 +4,9 @@ const sequelize = new Sequelize('hoidanit', 'root', null, {
   host: 'localhost',
   dialect: 'mysql',
   logging: false,
+  config: {
+    timezone: '+07:00',
+  },
 });
 
 const connectDB = async () => {

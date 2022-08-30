@@ -7,6 +7,7 @@ import * as apiController from '../controller/apiController';
 
 const appRouters = express.Router();
 
+//src10
 const initWebRoutes = (app) => {
   //web
   const {
@@ -39,11 +40,26 @@ const initWebRoutes = (app) => {
   appRouters.get(`${userDeletedUrl}/${idParam}`, delUser);
 
   // api
-  const { apiUrl, userListedApi, loginApi } = apiSupplies.apiUrls;
-  const { userListFn, loginFn } = apiController;
+  const {
+    idParamApi,
+    apiUrl,
+    loginApi,
+    userListedApi,
+    userCreatedApi,
+    userUpdatedApi,
+    userDeletedApi,
+  } = apiSupplies.apiUrls;
 
-  appRouters.get(apiUrl + userListedApi, userListFn);
+  const { loginFn, userListFn, userCreatedFn, userUpdatedFn, userDeletedFn } =
+    apiController;
+
   appRouters.post(apiUrl + loginApi, loginFn);
+  appRouters.get(apiUrl + userListedApi, userListFn); //v46xx2
+
+  //v48xx1
+  appRouters.post(apiUrl + userCreatedApi, userCreatedFn);
+  appRouters.delete(apiUrl + userDeletedApi, userDeletedFn);
+  appRouters.patch(apiUrl + userUpdatedApi, userUpdatedFn);
   return app.use(homeUrl, appRouters);
 };
 

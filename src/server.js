@@ -1,4 +1,3 @@
-//src9
 import express from 'express';
 import bodyParser from 'body-parser';
 import configViewEngine from './config/viewEngine';
@@ -9,7 +8,7 @@ import cors from 'cors';
 
 let app = express();
 
-app.use(cors({ credentials: true, origin: true })); //15ms04ss
+app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

@@ -1,3 +1,4 @@
+//src10,
 import 'dotenv/config';
 ('use strict');
 
@@ -6,7 +7,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require(__dirname + '/../config/config.json')[env]; //15ms50ss
 const db = {};
 let sequelize;
 
@@ -45,4 +46,3 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 export default db;
-// module.exports = db;

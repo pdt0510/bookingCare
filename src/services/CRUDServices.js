@@ -1,8 +1,7 @@
-//src9,
 import bcrypt from 'bcryptjs';
 import db from '../models/index';
 
-export const hashingPassword = (password) => {
+const hashingPassword = (password) => {
   return new Promise((resolve, reject) => {
     try {
       const salt = bcrypt.genSaltSync(10);
@@ -99,6 +98,3 @@ export const deleteAnUser = (id) => {
     }
   });
 };
-
-//v45xx1
-// export { createNewUser, getUserList, getAnUser, updateAnUser, deleteAnUser };
