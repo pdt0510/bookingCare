@@ -1,4 +1,3 @@
-//src10
 import * as apiSupplies from '../connectSupply/apiSupplies';
 import db from '../models/index';
 import bcrypt from 'bcryptjs';
@@ -9,7 +8,6 @@ const checkUserEmail = (email) => {
     try {
       const user = await db.users.findOne({
         where: { email },
-        raw: true,
       });
 
       if (user) {
@@ -45,20 +43,33 @@ const hashingPassword = (password) => {
   });
 };
 
-//v48xx1
+// v51xx2
+export const userDeletedApi = (id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const { notFound, noErrors } = apiSupplies.errStates;
+      let data = notFound;
+
+      const isSuccess = await db.users.destroy({ where: { id } });
+      if (isSuccess) {
+        data = noErrors;
+      }
+
+      resolve(data);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
 export const userUpdatedApi = (clientData) => {
   return new Promise(async (resolve, reject) => {
     try {
       const { noErrors, notFound } = apiSupplies.errStates;
       let data = { ...notFound, user: {} };
-
       const isUpdated = await db.users
         .update(
-          {
-            firstName: clientData.firstname,
-            lastName: clientData.lastname,
-            address: clientData.address,
-          },
+          { ...clientData }, //v52xx2
           { where: { id: clientData.id } },
         )
         .then((res) => {
@@ -87,8 +98,8 @@ export const userUpdatedApi = (clientData) => {
 export const userCreatedApi = (clientData) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let now = null;
       const { noErrors, notCreated } = apiSupplies.errStates;
+      let now = null;
       let data = {
         errCode: notCreated.errCode,
         status: notCreated.status,
@@ -97,31 +108,26 @@ export const userCreatedApi = (clientData) => {
       };
 
       const isExisted = await checkUserEmail(clientData.email);
-      if (isExisted) {
-        //no handling
-      } else {
+
+      if (!isExisted) {
         const hashedPassword = await hashingPassword(clientData.password);
 
-        //v48xx3
         const anNewUser = await db.users
           .findOrCreate({
             where: { email: clientData.email },
+            attributes: { exclude: ['passwordConfirmed'] }, //v52xx2
+
             defaults: {
-              email: clientData.email,
+              ...clientData, //v52xx2
               password: hashedPassword,
-              firstName: clientData.firstname,
-              lastName: clientData.lastname,
-              gender: clientData.gender === '1' ? true : false,
-              address: clientData.address,
-              phoneNumber: clientData.phoneNumber,
-              roleId: clientData.roleId,
+              gender: clientData.gender === '1' ? true : false, //v52xx6: post to server
             },
           })
           .then((res) => {
-            const [userData, isNewUser] = res; //v48xx3
+            const [userData, isNewUser] = res;
             if (isNewUser) {
-              now = moment().format('YYYY-MM-DD HH:mm:ss'); //v48xx4
-              return userData.get({ plain: true }); //v48xx5
+              now = moment().format('YYYY-MM-DD HH:mm:ss');
+              return userData.get({ plain: true });
             } else {
               return false;
             }
@@ -133,12 +139,13 @@ export const userCreatedApi = (clientData) => {
             user: {
               ...anNewUser,
               password: undefined,
-              createdAt: now, //v48xx4
+              createdAt: now,
               updatedAt: now,
             },
           };
         }
       }
+
       resolve(data);
     } catch (error) {
       reject(error);
@@ -146,7 +153,6 @@ export const userCreatedApi = (clientData) => {
   });
 };
 
-//v46xx2
 export const userListApi = (userId) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -156,16 +162,14 @@ export const userListApi = (userId) => {
 
       if (userId === 'ALL') {
         users = await db.users.findAll({
-          attributes: { exclude: ['password'] }, //14ms09ss
+          attributes: { exclude: ['password'] },
         });
       } else {
         users = await db.users.findAll({
           where: { userId },
-          attributes: { exclude: ['password'] }, //14ms09ss
-          // raw: true, //15ms50ss
+          attributes: { exclude: ['password'] },
         });
       }
-      // console.log('users - ', users); //15ms50ss
 
       if (users) {
         data = {
@@ -200,7 +204,6 @@ export const handleUserLogin = (email, password) => {
         const userDb = await db.users.findOne({
           where: { email },
           attributes: ['email', 'password', 'roleId'],
-          raw: true,
         });
 
         if (userDb) {

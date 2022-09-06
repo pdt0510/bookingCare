@@ -1,13 +1,10 @@
 import express from 'express';
 import * as webSupplies from '../connectSupply/webSupplies';
 import * as homeController from '../controller/homeController';
-
 import * as apiSupplies from '../connectSupply/apiSupplies';
 import * as apiController from '../controller/apiController';
 
 const appRouters = express.Router();
-
-//src10
 const initWebRoutes = (app) => {
   //web
   const {
@@ -41,7 +38,6 @@ const initWebRoutes = (app) => {
 
   // api
   const {
-    idParamApi,
     apiUrl,
     loginApi,
     userListedApi,
@@ -54,9 +50,7 @@ const initWebRoutes = (app) => {
     apiController;
 
   appRouters.post(apiUrl + loginApi, loginFn);
-  appRouters.get(apiUrl + userListedApi, userListFn); //v46xx2
-
-  //v48xx1
+  appRouters.get(apiUrl + userListedApi, userListFn);
   appRouters.post(apiUrl + userCreatedApi, userCreatedFn);
   appRouters.delete(apiUrl + userDeletedApi, userDeletedFn);
   appRouters.patch(apiUrl + userUpdatedApi, userUpdatedFn);

@@ -1,4 +1,3 @@
-//src10
 import * as apiServices from '../services/apiServices';
 import * as apiSupplies from '../connectSupply/apiSupplies';
 
@@ -6,6 +5,8 @@ export const userUpdatedFn = async (req, res) => {
   let data = null;
   const id = +req.body.id;
   const { fieldRequired, incorrectInfo } = apiSupplies.errStates;
+
+  console.log('userUpdatedFn req.body: ', req.body); //v51xx2
 
   if (!id || typeof id !== 'number') {
     data = {
@@ -40,7 +41,6 @@ export const userCreatedFn = async (req, res) => {
   const clientData = req.body;
   const { notCreated, fieldRequired, incorrectInfo } = apiSupplies.errStates;
 
-  // v48xx2
   for (const key in clientData) {
     if (clientData[key] === null || clientData[key] === '') {
       isEmpty = true;
@@ -77,11 +77,11 @@ export const userCreatedFn = async (req, res) => {
 };
 
 export const userDeletedFn = async (req, res) => {
-  // v48xx6
-  // const id = +req.params.id;
   const id = +req.body.id;
   let data = null;
   const { incorrectInfo } = apiSupplies.errStates;
+
+  // console.log('userDeletedFn req.body', req.body); //v51xx2
 
   if (!id || typeof id !== 'number') {
     data = {
@@ -96,10 +96,9 @@ export const userDeletedFn = async (req, res) => {
 };
 
 export const userListFn = async (req, res) => {
-  //4ms01ss
   let data = null;
   const id = Object.keys(req.params).length === 0 ? 'ALL' : req.params.id;
-  const { notFound, missingParams } = apiSupplies.errStates;
+  const { missingParams } = apiSupplies.errStates;
 
   if (!id) {
     data = {
