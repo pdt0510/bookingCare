@@ -1,4 +1,3 @@
-//src9
 import actionTypes from '../actions/actionTypes';
 
 const initialState = {
@@ -8,7 +7,7 @@ const initialState = {
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.USER_LOGIN_SUCCESS: //41ms31ss
+    case actionTypes.USER_LOGIN_SUCCESS:
       return {
         ...state,
         isLoggedIn: true,

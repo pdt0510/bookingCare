@@ -2,12 +2,6 @@
  * General styles
  */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body,
 html {
   background-image: '#fff';
@@ -87,28 +81,28 @@ html {
   }
 }
 
-.modal {
-  .modal-dialog {
-    .modal-content {
-      .modal-header {
-        padding: 0 10px;
-        height: 35px;
-        background-color: $colormain;
-        color: $common-text-color;
-        .modal-title {
-          line-height: 35px;
-          font-weight: 500;
-          font-size: $base-size + 1px;
-        }
-        .btn-close {
-          position: absolute;
-          color: $common-text-color;
-          i {
-            line-height: 35px;
-            font-size: $base-size + 2px;
-          }
-        }
-      }
-    }
-  }
-}
+// .modal {
+//   .modal-dialog {
+//     .modal-content {
+//       .modal-header {
+//         padding: 0 10px;
+//         height: 35px;
+//         background-color: $colormain;
+//         color: $common-text-color;
+//         .modal-title {
+//           line-height: 35px;
+//           font-weight: 500;
+//           font-size: $base-size + 1px;
+//         }
+//         .btn-close {
+//           position: absolute;
+//           color: $common-text-color;
+//           i {
+//             line-height: 35px;
+//             font-size: $base-size + 2px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

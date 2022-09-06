@@ -1,4 +1,3 @@
-//src9, 6ms29ss
 import axios from 'axios';
 
 const instance = axios.create({
@@ -6,7 +5,6 @@ const instance = axios.create({
   withCredentials: true,
 });
 
-// 29ms49ss
 instance.interceptors.response.use(
   (response) => {
     const { data } = response;

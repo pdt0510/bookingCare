@@ -13,7 +13,6 @@ const persistCommonConfig = {
   stateReconciler: autoMergeLevel2,
 };
 
-// 44ms50ss
 const userPersistConfig = {
   ...persistCommonConfig,
   key: 'user',
@@ -23,7 +22,7 @@ const userPersistConfig = {
 const createRootReducer = (history) =>
   combineReducers({
     router: connectRouter(history),
-    user: persistReducer(userPersistConfig, userReducer), //44ms50ss
+    user: persistReducer(userPersistConfig, userReducer),
     app: appReducer,
   });
 

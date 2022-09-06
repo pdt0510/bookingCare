@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
-import * as actions from '../../store/actions/';
+import * as actions from '../../store/actions';
 import './login.scss';
 
 import { userService } from '../../services';
 
-//src9
 class Login extends Component {
   state = {
     email: '',
     message: '',
-    password: '',
+    password: '', 
     isDisplayedPassword: false,
   };
 
@@ -29,28 +28,27 @@ class Login extends Component {
   };
 
   handleSubmit = async () => {
-    // 19ms04ss
     const { email, password } = this.state;
-    const { userLoginSuccess } = this.props; //41ms31ss
+    const { userLoginSuccess } = this.props;
 
     try {
-      // 29ms49ss
-      const data = await userService.loginApi(email, password);
-      if (data.errCode === 0) {
-        userLoginSuccess(data.user); //41ms31ss
+      const isLogged = await userService.loginApi(email, password);
+      if (isLogged.errCode === 0) {
+        userLoginSuccess(isLogged.user);
+
         this.setState({
-          message: '', //successfully -> clear
+          message: '',
         });
       } else {
         this.setState({
-          message: data.message, //error -> send to client
+          message: isLogged.message,
         });
       }
     } catch (error) {
       if (error.response) {
         if (error.response.data) {
           this.setState({
-            message: error.response.data.message, //error
+            message: error.response.data.message,
           });
         }
       }
@@ -152,7 +150,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     navigate: (path) => dispatch(push(path)),
 
-    // 41ms31ss
     userLoginSuccess: (userInfo) =>
       dispatch(actions.userLoginSuccess(userInfo)),
 
