@@ -13,15 +13,12 @@ import { path } from '../utils';
 import Home from '../routes/Home';
 import Header from './Header/Header';
 import System from '../routes/System';
-
-// 5ms21ss
 import Login from './auth/Login';
-// import Login from '../routes/Login';
-
 import { CustomToastCloseButton } from '../components/CustomToast';
 import ConfirmModal from '../components/ConfirmModal';
+import HomePage from './homePage/HomePage';
+import './App.scss';
 
-//src7
 class App extends Component {
   handlePersistorState = () => {
     const { persistor } = this.props;
@@ -45,9 +42,12 @@ class App extends Component {
     return (
       <Fragment>
         <Router history={history}>
+          {/* v55xx1 */}
           <div className='main-container'>
             <ConfirmModal />
-            {this.props.isLoggedIn && <Header />}
+            {
+              this.props.isLoggedIn && <Header /> // 25ms31ss
+            }
 
             <span className='content-container'>
               <Switch>
@@ -60,6 +60,8 @@ class App extends Component {
                   path={path.SYSTEM}
                   component={userIsAuthenticated(System)}
                 />
+                {/* 21ms48ss */}
+                <Route path={path.HOMEPAGE} component={HomePage} />
               </Switch>
             </span>
 

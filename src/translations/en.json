@@ -1,4 +1,38 @@
 {
+    "home-header": {
+        "speciality": "Medical specialty",
+        "findingDoctor": "Finding speciality doctors",
+        "healthFacilities": "Health facilities",
+        "selectHospitalClinic": "Selecting hospital/clinic",
+        "doctor": "Doctor",
+        "chooseAGoodDoctor": "Choosing a good doctor",
+        "checkupPackage": "Checking-up package",
+        "generalHealthCheck": "General health checking",
+        "support": "Support"
+    },
+    "bannerTitle": {
+        "title1_1": "MEDICAL BACKGROUND",
+        "title1_2": "COMPREHENSIVE HEALTH CARE",
+        "title2": "Finding",
+        "title3_1": "Specialized",
+        "title3_2": "examination",
+        "title4_1": "Remote",
+        "title4_2": "examination",
+        "title5_1": "General",
+        "title5_2": "examination",
+        "title6_1": "Medical",
+        "title6_2": "test",
+        "title7_1": "Mental",
+        "title7_2": "health",
+        "title8_1": "Dental",
+        "title8_2": "examination",
+        "title9_1": "Surgery",
+        "title9_2": "pack",
+        "title10_1": "Medical",
+        "title10_2": "products",
+        "title11_1": "Corporate",
+        "title11_2": "health"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",

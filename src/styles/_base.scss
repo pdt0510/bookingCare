@@ -11,6 +11,9 @@ html {
   font-size: $base-size - 2px;
   height: 100vh;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .btn {

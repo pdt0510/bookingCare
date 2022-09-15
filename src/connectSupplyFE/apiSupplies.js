@@ -4,41 +4,42 @@ export const apiUrls = {
   loginApi: '/login',
   userListedApi: '/user-listed',
   userCreatedApi: '/user-created',
-  userUpdatedApi: '/user-updated',
   userDeletedApi: '/user-deleted',
+  userUpdatedApi: '/user-updated',
 };
 
 export const errStates = {
   noErrors: {
     errCode: 0,
-    okStatus: 200,
+    status: 200, //OK
     message: 'Successfully requested',
   },
   fieldRequired: {
     errCode: 1,
-    status: 400,
+    status: 400, //Bad Request
     message: 'Fields required',
   },
   notFound: {
     errCode: 2,
-    status: 404,
+    status: 404, //Not Found
     message: 'Not Found!',
   },
   incorrectInfo: {
     errCode: 3,
-    status: 406,
-    accMes: 'Your account is incorrect',
+    status: 406, // Not Acceptable
+    idMes: 'Incorrect id',
     emailMes: 'Incorrect email',
-    passwordConfirmedMes: 'Incorrect password confirmed',
+    accMes: 'Your account is incorrect',
+    passwordConfirmedMes: 'Incorrect password',
   },
   missingParams: {
     errCode: 4,
-    status: 406,
+    status: 406, // Not Acceptable
     idMes: 'Missing required id',
   },
   notCreated: {
     errCode: 5,
-    status: 501,
-    emailMes: 'Email is already exited',
+    status: 501, //Not Implemented
+    emailMes: 'Email is already existed',
   },
 };

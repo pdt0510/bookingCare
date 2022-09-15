@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { userService } from '../../services';
-import './UserManage.scss';
 import ModalUser from './ModalUser';
+import './UserManage.scss';
 
 class UserManage extends Component {
   state = {
     isOpen: false,
+    userEdit: null,
     userList: [],
     message: '',
-    userEdit: null,
   };
 
   updateAnUser = async (userUpdated) => {
@@ -41,7 +41,6 @@ class UserManage extends Component {
     }
   };
 
-  // v52xx1
   editUserHandle = (user) => {
     this.toggleModalFn();
     this.setState({
@@ -49,16 +48,14 @@ class UserManage extends Component {
     });
   };
 
-  // v51xx1
   deleleUserHandle = async (userId) => {
     if (userId) {
       try {
         const data = await userService.deleteUser(userId);
 
         if (data.errCode === 0) {
-          const newList = [...this.state.userList];
           this.setState({
-            userList: newList.filter((item) => item.id !== userId),
+            userList: this.state.userList.filter((item) => item.id !== userId),
             message: 'Successfully deleted',
           });
           return;
@@ -72,7 +69,6 @@ class UserManage extends Component {
     }
   };
 
-  //58ms50ss
   createNewUserFn = async (newUser) => {
     if (newUser) {
       try {
@@ -81,7 +77,7 @@ class UserManage extends Component {
         if (data.errCode === 0) {
           const userCreated = {
             ...data.user,
-            gender: data.user.gender ? '1' : '0', //v52xx6 rendering to UI
+            gender: data.user.gender ? '1' : '0',
           };
 
           const newList = [...this.state.userList];
@@ -89,14 +85,14 @@ class UserManage extends Component {
 
           this.setState({
             userEdit: null,
-            userList: newList, //update the list for UI
+            userList: newList,
             message: 'Successfully created',
           });
-          return true; //v50xx4
+          return true;
         }
 
         alert(data.message);
-        return false; //v50xx4
+        return false;
       } catch (error) {
         console.log('UserManage.js: ', error);
       }
@@ -114,18 +110,11 @@ class UserManage extends Component {
     await this.getAllUsers();
   };
 
-  // 35ms06ss
   toggleModalFn = () => {
-    if (this.state.userEdit) {
-      this.setState({
-        userEdit: null,
-        isOpen: !this.state.isOpen,
-      });
-    } else {
-      this.setState({
-        isOpen: !this.state.isOpen,
-      });
-    }
+    this.setState({
+      userEdit: null, //reset userEdit to null if valued or not
+      isOpen: !this.state.isOpen,
+    });
   };
 
   render() {
@@ -135,17 +124,17 @@ class UserManage extends Component {
       return (
         <div className='container'>
           <a
-            className='btn btn-primary btn-add' //2ms45ss
+            className='btn btn-primary btn-add'
             href='##'
             role='button'
             onClick={this.toggleModalFn}
           >
             <i className='fas fa-plus'></i> ADD AN USER
           </a>
-          {/* 31ms23ss, v52xx3 */}
+
           {isOpen ? (
             <ModalUser
-              toggleModalFn={this.toggleModalFn} //35ms06ss
+              toggleModalFn={this.toggleModalFn}
               createNewUserFn={this.createNewUserFn}
               updateAnUser={this.updateAnUser}
               userEdit={userEdit}

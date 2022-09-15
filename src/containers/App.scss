@@ -1,1 +1,7 @@
-@import "../styles/common.scss";
+@import '../styles/common.scss';
+
+// v55xx1
+.main-container {
+  height: 95vh;
+  overflow: auto;
+}

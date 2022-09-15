@@ -1,14 +1,12 @@
-//src11
 import axios from '../axios';
 import * as apiSupplies from '../connectSupplyFE/apiSupplies';
 
-// v52xx1
 export const updateUser = (newData) => {
   return new Promise(async (resolve, reject) => {
     try {
       const { apiUrl, userUpdatedApi } = apiSupplies.apiUrls;
       const data = await axios.patch(apiUrl + userUpdatedApi, {
-        ...newData, //v51xx2
+        ...newData,
       });
       resolve(data);
     } catch (error) {
@@ -17,13 +15,12 @@ export const updateUser = (newData) => {
   });
 };
 
-// v51xx1
 export const deleteUser = (userId) => {
   return new Promise(async (resolve, reject) => {
     try {
       const { apiUrl, userDeletedApi } = apiSupplies.apiUrls;
       const data = await axios.delete(apiUrl + userDeletedApi, {
-        data: { id: userId }, //v51xx2
+        data: { id: userId },
       });
       resolve(data);
     } catch (error) {
@@ -32,7 +29,6 @@ export const deleteUser = (userId) => {
   });
 };
 
-// 58ms50ss
 export const newUser = (newUser) => {
   return new Promise(async (resolve, reject) => {
     try {

@@ -16,15 +16,12 @@ import {
 
 import './ModalUser.scss';
 
-//src11, 22ms14ss
 class ModalUser extends Component {
   state = {
     email: '',
     password: '',
     passwordConfirmed: '',
-
-    //v50xx1, v50xx2
-    firstName: '', //v52xx2
+    firstName: '',
     lastName: '',
     address: '',
     phoneNumber: '',
@@ -36,43 +33,16 @@ class ModalUser extends Component {
     const { userEdit } = this.props;
     if (userEdit) {
       this.setState({
-        ...userEdit, //v52xx2
-        gender: `${userEdit.gender}`, //v52xx6, for update -> server
+        ...userEdit,
+        gender: `${userEdit.gender}`,
       });
     }
   };
 
-  // v50xx3
-  restAndSpreadTesting = () => {
-    // rest of array
-    const array = [1, 2, 3, 4];
-    const [t, e, ...rest] = array; //kết hợp destructuring array
-    // console.log(t, e, ...rest);
-
-    /* rest of object */
-    const object = {
-      key1: 'key1',
-      key2: 'key2',
-      key3: 'key3',
-      key4: 'key4',
-    };
-    const { key1, key2, ...restObj } = object; //kết hợp destructuring obj
-    // console.log(key1, key2, restObj);
-
-    /* spread of array */
-    const array2 = [...array];
-    // console.log('array2 - ', array2);
-
-    /* spread of obj */
-    const stateCloned = { ...this.state };
-    // console.log('stateCloned - ', stateCloned);
-  };
-
-  // 3ms23ss
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value, //v50xx1
+      [name]: value,
     });
   };
 
@@ -95,7 +65,6 @@ class ModalUser extends Component {
     return (isValid = true);
   };
 
-  // 45ms31ss
   checkingInputValues = (state) => {
     let isValid = false;
     for (let key in state) {
@@ -126,23 +95,31 @@ class ModalUser extends Component {
   };
 
   submitHandle = async () => {
-    this.restAndSpreadTesting();
+    const { createNewUserFn, updateAnUser, userEdit } = this.props;
+    const {
+      id,
+      email,
+      firstName,
+      lastName,
+      address,
+      gender,
+      phoneNumber,
+      roleId,
+    } = this.state;
+
     let isValid = null;
     let isSuccess = null;
 
-    // 35ms06ss
-    const { createNewUserFn, updateAnUser, userEdit } = this.props;
-
     if (userEdit) {
       const dataForUpdate = {
-        id: this.state.id,
-        email: this.state.email,
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        address: this.state.address,
-        gender: this.state.gender,
-        phoneNumber: this.state.phoneNumber,
-        roleId: this.state.roleId,
+        id,
+        email,
+        firstName,
+        lastName,
+        address,
+        gender,
+        phoneNumber,
+        roleId,
       };
       isValid = this.checkingEditValues(dataForUpdate);
       if (isValid) {
@@ -155,20 +132,18 @@ class ModalUser extends Component {
       }
     }
 
-    // v50xx4
     if (isSuccess) {
       this.cancelHandle();
     }
   };
 
   cancelHandle = () => {
-    const { toggleModalFn } = this.props;
     this.resettingForm();
-    toggleModalFn();
+    this.props.toggleModalFn();
   };
 
   render() {
-    const { toggleModalFn, userEdit } = this.props; // 35ms06ss
+    const { toggleModalFn, userEdit } = this.props;
     const {
       email,
       password,
@@ -182,14 +157,12 @@ class ModalUser extends Component {
     } = this.state;
 
     return (
-      // 53ms29ss
       <Modal
-        isOpen={true} //v52xx3
+        isOpen={true}
         centered
         size='lg'
         className='model-user-container-custom'
       >
-        {/* 57ms21ss */}
         <ModalHeader toggle={toggleModalFn} className='header-custom'>
           {userEdit ? 'Update an user' : 'Create an new user'}
         </ModalHeader>
@@ -200,13 +173,13 @@ class ModalUser extends Component {
                 <FormGroup>
                   <Label for='EmailFor'>Email</Label>
                   <Input
-                    disabled={userEdit ? true : false}
                     type='email'
                     name='email'
-                    value={email} //39ms47ss, v50xx2
+                    disabled={userEdit ? true : false}
+                    value={email}
                     id='EmailFor'
                     placeholder='Email'
-                    onChange={this.handleChange} //3ms23ss
+                    onChange={this.handleChange}
                   />
                 </FormGroup>
               </Col>
@@ -219,8 +192,8 @@ class ModalUser extends Component {
                   <Input
                     type='text'
                     name='password'
-                    disabled={userEdit ? true : false} //v52xx4
-                    value={password ? password : '***'} //39ms47ss, v50xx2, v52xx5
+                    disabled={userEdit ? true : false}
+                    value={password ? password : '***'}
                     id='PasswordFor'
                     placeholder='Password'
                     onChange={this.handleChange}
@@ -233,8 +206,8 @@ class ModalUser extends Component {
                   <Input
                     type='text'
                     name='passwordConfirmed'
-                    disabled={userEdit ? true : false} //v52xx4
-                    value={passwordConfirmed ? passwordConfirmed : '***'} //39ms47ss, v52xx5
+                    disabled={userEdit ? true : false}
+                    value={passwordConfirmed ? passwordConfirmed : '***'}
                     id='passwordConfirmedFor'
                     placeholder='Confirm password'
                     onChange={this.handleChange}
@@ -249,7 +222,7 @@ class ModalUser extends Component {
                   <Input
                     type='text'
                     name='firstName'
-                    value={firstName} //v52xx2
+                    value={firstName}
                     id='firstNameFor'
                     placeholder='Firstname'
                     onChange={this.handleChange}
@@ -262,7 +235,7 @@ class ModalUser extends Component {
                   <Input
                     type='text'
                     name='lastName'
-                    value={lastName} //v52xx2
+                    value={lastName}
                     id='LastnameFor'
                     placeholder='Lastname'
                     onChange={this.handleChange}
