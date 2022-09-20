@@ -1,13 +1,11 @@
-//src12,
 export const path = {
   HOME: '/',
   LOGIN: '/login',
   LOG_OUT: '/logout',
   SYSTEM: '/system',
-  HOMEPAGE: '/home', //21ms48ss
+  HOMEPAGE: '/home',
 };
 
-//18ms50ss
 export const LANGUAGES = {
   VI: 'vi',
   EN: 'en',

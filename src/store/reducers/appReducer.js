@@ -1,4 +1,3 @@
-//src12, //52ms39ss
 import actionTypes from '../actions/actionTypes';
 
 const initContentOfConfirmModal = {
@@ -10,7 +9,7 @@ const initContentOfConfirmModal = {
 
 const initialState = {
   started: true,
-  language: 'vi', //42ms30ss
+  language: 'vi',
   systemMenuPath: '/system/user-manage',
   contentOfConfirmModal: {
     ...initContentOfConfirmModal,
@@ -32,7 +31,7 @@ const appReducer = (state = initialState, action) => {
           ...action.contentOfConfirmModal,
         },
       };
-    // 25ms24ss
+
     case actionTypes.CHANGE_LANGUAE:
       return {
         ...state,

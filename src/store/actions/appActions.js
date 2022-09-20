@@ -1,4 +1,3 @@
-//src12
 import actionTypes from './actionTypes';
 
 export const appStartUpComplete = () => ({
@@ -10,7 +9,6 @@ export const setContentOfConfirmModal = (contentOfConfirmModal) => ({
   contentOfConfirmModal: contentOfConfirmModal,
 });
 
-//25ms24ss
 export const changeLangsApp = (lang) => ({
   type: actionTypes.CHANGE_LANGUAE,
   lang,

@@ -3,15 +3,23 @@
   padding: 0;
 }
 
-//src12, 31ms22ss
 .home-header-container {
   .home-header-content {
     display: flex;
-    justify-content: center; //v54xx1
-    padding: 15px 0 22px;
+    justify-content: center;
+    align-items: center;
+
+    // 35ms34ss
+    height: 77px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: white;
 
     .header-content-left {
-      display: flex; //v54xx2
+      display: flex;
       align-items: center;
 
       .header-left-icon {
@@ -20,19 +28,15 @@
       }
 
       .header-left-logo {
-        display: block; //v54xx2
+        display: block;
         height: 35px;
         width: 160px;
         margin-left: 8px;
-        // background: url('../../assets/images/bookingCare.svg') center center no-repeat;  //way 1
-
-        //  40ms45ss, way 2
-        background: url('../../assets/images/bookingCare.svg') center/contain
+        background: url('../../../assets/images/bookingCare.svg') center/contain
           no-repeat;
       }
     }
 
-    // 48ms17ss
     .header-content-mid {
       display: flex;
       margin-left: 88px;
@@ -56,7 +60,7 @@
     }
 
     .header-content-right {
-      align-self: center; //v53xx1
+      align-self: center;
       margin-left: 200px;
       font-weight: 500;
       color: #969495;
@@ -69,7 +73,6 @@
         cursor: pointer;
         margin-left: 32px;
 
-        // 50ms34ss, 45ms26ss
         &.active {
           color: blue;
         }
@@ -85,15 +88,15 @@
   }
 }
 
-// 7ms26ss
 .home-header-banner {
-  background: url('../../assets//images//bookingCareCover.jpg') center / cover
+  background: url('../../../assets/images/bookingCareCover.jpg') center / cover
     no-repeat;
   height: 620px;
   position: relative;
+  top: 77px; //35ms34ss
 
   .header-banner-content {
-    text-align: center; //v54xx1,
+    text-align: center;
     padding: 45px 0;
     background-image: linear-gradient(
       rgba(0, 0, 0, 0.3),
@@ -112,7 +115,7 @@
 
     .header-banner-search {
       background-color: #f7d800;
-      margin: 20px auto 85px; //v54xx1
+      margin: 20px auto 85px;
       width: 410px;
       padding: 13px 25px;
       border-radius: 25px;
@@ -129,12 +132,11 @@
     }
 
     .header-banner-badge {
-      //v54xx2
       display: inline-flex;
       height: 32px;
 
       .banner-badge-google {
-        background: url('../../assets//images/google-play-badge.svg') center /
+        background: url('../../../assets/images/google-play-badge.svg') center /
           cover no-repeat;
         width: 108px;
         margin-right: 20px;
@@ -142,16 +144,16 @@
       }
 
       .banner-badge-appStore {
-        background: url('../../assets//images/app-store-badge.svg') center /
+        background: url('../../../assets/images/app-store-badge.svg') center /
           cover no-repeat;
-        width: 108px; //v54xx2
+        width: 108px;
         cursor: pointer;
       }
     }
   }
 }
 
-.banner-footer-content {
+.banner-homeFooter-content {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -167,12 +169,11 @@
     rgba(255, 255, 255, 1)
   );
 
-  .footer-content-blocks {
+  .homeFooter-content-blocks {
     min-width: 150px;
     margin: 10px 5px;
     text-align: center;
 
-    // 50ms34ss
     &:hover {
       cursor: pointer;
       .content-block-text {
@@ -198,55 +199,55 @@
 
     .content-icon-bgr-1 {
       background: white
-        url('../../assets//images//header-footer/133537-khamchuyenkhoa.png')
-        center/70% no-repeat; //v54xx3
+        url('../../../assets/images/header-footer/133537-khamchuyenkhoa.png')
+        center/70% no-repeat;
     }
 
     .content-icon-bgr-2 {
       background: white
-        url('../../assets//images//header-footer/133657-khamtuxa.png')
+        url('../../../assets/images/header-footer/133657-khamtuxa.png')
         center/70% no-repeat;
     }
 
     .content-icon-bgr-3 {
       background: white
-        url('../../assets//images//header-footer/133744-khamtongquat.png')
+        url('../../../assets/images/header-footer/133744-khamtongquat.png')
         center/70% no-repeat;
     }
 
     .content-icon-bgr-4 {
       background: white
-        url('../../assets//images//header-footer/133744-dichvuxetnghiem.png')
+        url('../../../assets/images/header-footer/133744-dichvuxetnghiem.png')
         center/70% no-repeat;
     }
 
     .content-icon-bgr-5 {
       background: white
-        url('../../assets//images//header-footer/133744-suckhoetinhthan.png')
+        url('../../../assets/images/header-footer/133744-suckhoetinhthan.png')
         center/70% no-repeat;
     }
 
     .content-icon-bgr-6 {
       background: white
-        url('../../assets//images//header-footer/104635-khamnhakhoa.png')
+        url('../../../assets/images/header-footer/104635-khamnhakhoa.png')
         center/70% no-repeat;
     }
 
     .content-icon-bgr-7 {
       background: white
-        url('../../assets//images//header-footer/151930-phau-thuat.jpg')
+        url('../../../assets/images/header-footer/151930-phau-thuat.jpg')
         center/70% no-repeat;
     }
 
     .content-icon-bgr-8 {
       background: white
-        url('../../assets//images//header-footer/133744-khamtainha.png')
+        url('../../../assets/images/header-footer/133744-khamtainha.png')
         center/70% no-repeat;
     }
 
     .content-icon-bgr-9 {
       background: white
-        url('../../assets//images//header-footer/101157-icon-lich-su.jpg')
+        url('../../../assets/images/header-footer/101157-icon-lich-su.jpg')
         center/70% no-repeat;
     }
   }

@@ -1,0 +1,38 @@
+.category-blocks {
+  text-align: center;
+  display: flex !important;
+  align-items: center;
+
+  .category-content-text {
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .category-pics {
+    background-position: center; // 41ms50ss
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    box-shadow: 1px 1px 5px grey;
+    height: 160px;
+    width: 282px;
+    margin: 10px auto;
+    flex: 1;
+  }
+
+  .category-pic1 {
+    background-image: url('../../../assets/images/category/081852-review-nha-khoa-360-dental-co-tot-khong.png'); //41ms50ss
+  }
+
+  .category-pic2 {
+    background-image: url('../../../assets/images/category/222445-kham-ho-hap-o-dau-tot-tphcm.png');
+  }
+
+  .category-pic3 {
+    background-image: url('../../../assets/images/category/212144-phong-kham-chan-thuong-chinh-hinh-tot-tphcm.png');
+  }
+
+  .category-pic4 {
+    background-image: url('../../../assets/images/category/141711-bac-si-da-lieu-gioi-tphcm.png');
+  }
+}

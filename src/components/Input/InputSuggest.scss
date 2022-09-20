@@ -7,7 +7,7 @@
     z-index: 4;
     max-height: 140px;
     overflow: auto;
-    background: $footer-container;
+    background: $homeFooter-container;
     box-shadow: 2px 2px 4px 0 $box-shadow-color;
     -webkit-box-shadow: 2px 2px 4px 0 $box-shadow-color;
 }
@@ -25,10 +25,10 @@
     border-bottom: 1px solid $border;
     &:hover {
         cursor: pointer;
-        background-color: darken($footer-container, 5);
+        background-color: darken($homeFooter-container, 5);
     }
 }
 
 .react-autosuggest__suggestion--highlighted {
-    background-color: darken($footer-container, 5);
+    background-color: darken($homeFooter-container, 5);
 }

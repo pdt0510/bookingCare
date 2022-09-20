@@ -19,6 +19,8 @@ import ConfirmModal from '../components/ConfirmModal';
 import HomePage from './homePage/HomePage';
 import './App.scss';
 
+import CustomScrollbars from '../components/CustomScrollbars'; //23ms04ss
+
 class App extends Component {
   handlePersistorState = () => {
     const { persistor } = this.props;
@@ -42,28 +44,27 @@ class App extends Component {
     return (
       <Fragment>
         <Router history={history}>
-          {/* v55xx1 */}
           <div className='main-container'>
             <ConfirmModal />
-            {
-              this.props.isLoggedIn && <Header /> // 25ms31ss
-            }
+            {this.props.isLoggedIn && <Header />}
 
-            <span className='content-container'>
-              <Switch>
-                <Route path={path.HOME} exact component={Home} />
-                <Route
-                  path={path.LOGIN}
-                  component={userIsNotAuthenticated(Login)}
-                />
-                <Route
-                  path={path.SYSTEM}
-                  component={userIsAuthenticated(System)}
-                />
-                {/* 21ms48ss */}
-                <Route path={path.HOMEPAGE} component={HomePage} />
-              </Switch>
-            </span>
+            <div className='content-container'>
+              {/* 23ms04ss */}
+              <CustomScrollbars>
+                <Switch>
+                  <Route path={path.HOME} exact component={Home} />
+                  <Route
+                    path={path.LOGIN}
+                    component={userIsNotAuthenticated(Login)}
+                  />
+                  <Route
+                    path={path.SYSTEM}
+                    component={userIsAuthenticated(System)}
+                  />
+                  <Route path={path.HOMEPAGE} component={HomePage} />
+                </Switch>
+              </CustomScrollbars>
+            </div>
 
             <ToastContainer
               className='toast-container'

@@ -1,21 +1,18 @@
-//src12, 29ms03ss
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeHeader.scss';
-import { FormattedMessage } from 'react-intl'; //58ms01ss
-import { LANGUAGES } from '../../utils'; //20ms26ss
-import { changeLangsApp } from '../../store/actions'; //25ms24ss
+import { FormattedMessage } from 'react-intl';
+import { LANGUAGES } from '../../../utils';
+import { changeLangsApp } from '../../../store/actions';
 
 class HomeHeader extends Component {
-  // 18ms50ss
   changeLangs = (lang) => {
-    this.props.langsHandle(lang); //25ms24ss
+    this.props.langsHandle(lang);
   };
 
   render() {
-    const { language } = this.props; //42ms30ss
+    const { language } = this.props;
 
-    // 31ms22ss
     return (
       <>
         <div className='home-header-container'>
@@ -26,17 +23,12 @@ class HomeHeader extends Component {
             </div>
             <div className='header-content-mid'>
               <div className='header-mid-section'>
-                {/* 58ms01ss */}
                 <span className='header-mid-text1'>
                   <FormattedMessage id='home-header.speciality' />
                 </span>
                 <span className='header-mid-text2'>
                   <FormattedMessage id='home-header.findingDoctor' />
                 </span>
-                {/* <span className='header-mid-text1'>Chuyên khoa</span>
-                <span className='header-mid-text2'>
-                  Tìm bác sĩ theo chuyên khoa
-                </span> */}
               </div>
               <div className='header-mid-section'>
                 <span className='header-mid-text1'>
@@ -69,9 +61,8 @@ class HomeHeader extends Component {
                 <FormattedMessage id='home-header.support' />
               </span>
               <span
-                //42ms30ss
                 className={`switch-to-vi ${language === 'vi' ? 'active' : ''}`}
-                onClick={() => this.changeLangs(LANGUAGES.VI)} //20ms26ss
+                onClick={() => this.changeLangs(LANGUAGES.VI)}
               >
                 VI
               </span>
@@ -86,7 +77,6 @@ class HomeHeader extends Component {
           </div>
         </div>
 
-        {/*  3ms59ss */}
         <div className='home-header-banner'>
           <div className='header-banner-content'>
             <span className='header-banner-text'>
@@ -95,11 +85,6 @@ class HomeHeader extends Component {
                 <FormattedMessage id='bannerTitle.title1_2' />
               </span>
             </span>
-            {/* <span className='header-banner-text'>
-              nền tảng y tế
-              <br />
-              <span> chăm sóc sức khỏe toàn diện</span>
-            </span> */}
             <div className='header-banner-search'>
               <i className='fas fa-search banner-search-icon'></i>
               <input className='banner-search-input' placeholder={''} />
@@ -109,65 +94,64 @@ class HomeHeader extends Component {
               <span className='banner-badge-appStore'></span>
             </div>
           </div>
-          <div className='banner-footer-content'>
-            <div className='footer-content-blocks'>
+          <div className='banner-homeFooter-content'>
+            <div className='homeFooter-content-blocks'>
               <span className='content-blocks-outlined content-icon-bgr-1'></span>
-              {/* 1h12ms45ss */}
               <span className='content-block-text'>
                 <FormattedMessage id='bannerTitle.title3_1' /> <br />
                 <FormattedMessage id='bannerTitle.title3_2' />
               </span>
             </div>
-            <div className='footer-content-blocks'>
+            <div className='homeFooter-content-blocks'>
               <span className='content-blocks-outlined content-icon-bgr-2'></span>
               <span className='content-block-text'>
                 <FormattedMessage id='bannerTitle.title4_1' /> <br />
                 <FormattedMessage id='bannerTitle.title4_2' />
               </span>
             </div>
-            <div className='footer-content-blocks'>
+            <div className='homeFooter-content-blocks'>
               <span className='content-blocks-outlined content-icon-bgr-3'></span>
               <span className='content-block-text'>
                 <FormattedMessage id='bannerTitle.title5_1' /> <br />
                 <FormattedMessage id='bannerTitle.title5_2' />
               </span>
             </div>
-            <div className='footer-content-blocks'>
+            <div className='homeFooter-content-blocks'>
               <span className='content-blocks-outlined content-icon-bgr-4'></span>
               <span className='content-block-text'>
                 <FormattedMessage id='bannerTitle.title6_1' /> <br />
                 <FormattedMessage id='bannerTitle.title6_2' />
               </span>
             </div>
-            <div className='footer-content-blocks'>
+            <div className='homeFooter-content-blocks'>
               <span className='content-blocks-outlined content-icon-bgr-5'></span>
               <span className='content-block-text'>
                 <FormattedMessage id='bannerTitle.title7_1' /> <br />
                 <FormattedMessage id='bannerTitle.title7_2' />
               </span>
             </div>
-            <div className='footer-content-blocks'>
+            <div className='homeFooter-content-blocks'>
               <span className='content-blocks-outlined content-icon-bgr-6'></span>
               <span className='content-block-text'>
                 <FormattedMessage id='bannerTitle.title8_1' /> <br />
                 <FormattedMessage id='bannerTitle.title8_2' />
               </span>
             </div>
-            <div className='footer-content-blocks'>
+            <div className='homeFooter-content-blocks'>
               <span className='content-blocks-outlined content-icon-bgr-7'></span>
               <span className='content-block-text'>
                 <FormattedMessage id='bannerTitle.title9_1' /> <br />
                 <FormattedMessage id='bannerTitle.title9_2' />
               </span>
             </div>
-            <div className='footer-content-blocks'>
+            <div className='homeFooter-content-blocks'>
               <span className='content-blocks-outlined content-icon-bgr-8'></span>
               <span className='content-block-text'>
                 <FormattedMessage id='bannerTitle.title10_1' /> <br />
                 <FormattedMessage id='bannerTitle.title10_2' />
               </span>
             </div>
-            <div className='footer-content-blocks'>
+            <div className='homeFooter-content-blocks'>
               <span className='content-blocks-outlined content-icon-bgr-9'></span>
               <span className='content-block-text'>
                 <FormattedMessage id='bannerTitle.title11_1' /> <br />
@@ -183,14 +167,14 @@ class HomeHeader extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    language: state.app.language, //50ms11ss, 42ms30ss
+    language: state.app.language,
     isLoggedIn: state.user.isLoggedIn,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    langsHandle: (lang) => dispatch(changeLangsApp(lang)), //25ms24ss
+    langsHandle: (lang) => dispatch(changeLangsApp(lang)),
   };
 };
 
