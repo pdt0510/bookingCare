@@ -11,7 +11,6 @@ import {
 } from '../hoc/authentication';
 import { path } from '../utils';
 import Home from '../routes/Home';
-import Header from './Header/Header';
 import System from '../routes/System';
 import Login from './auth/Login';
 import { CustomToastCloseButton } from '../components/CustomToast';
@@ -19,8 +18,9 @@ import ConfirmModal from '../components/ConfirmModal';
 import HomePage from './homePage/HomePage';
 import './App.scss';
 
-import CustomScrollbars from '../components/CustomScrollbars'; //23ms04ss
+import CustomScrollbars from '../components/CustomScrollbars';
 
+//src14
 class App extends Component {
   handlePersistorState = () => {
     const { persistor } = this.props;
@@ -46,10 +46,10 @@ class App extends Component {
         <Router history={history}>
           <div className='main-container'>
             <ConfirmModal />
-            {this.props.isLoggedIn && <Header />}
+            {/* 2ms48ss */}
+            {/* {this.props.isLoggedIn && <Header />} */}
 
             <div className='content-container'>
-              {/* 23ms04ss */}
               <CustomScrollbars>
                 <Switch>
                   <Route path={path.HOME} exact component={Home} />

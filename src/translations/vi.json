@@ -8,7 +8,8 @@
         "chooseAGoodDoctor": "Chọn bác sĩ tốt",
         "checkupPackage": "Gói khám",
         "generalHealthCheck": "Gói khám tổng thể",
-        "support": "Hỗ trợ"
+        "support": "Hỗ trợ",
+        "welcome": "Xin chào, "
     },
     "bannerTitle": {
         "title1_1": "NỀN TẢNG Y TẾ",
@@ -65,12 +66,24 @@
             "system-administrator": {
                 "header": "Quản trị hệ thống",
                 "user-manage": "Quản lý người sử dụng",
-                "product-manage": "Quản lý gói",
-                "register-package-group-or-account": "Đăng ký gói dịch vụ cho nhóm/tài khoản"
+                "user-redux": "Quản lý user redux"
             },
             "system-parameter": {
                 "header": "Tham số hệ thống"
             }
+        },
+        "admin": {
+            "user-manager": "Người dùng",
+            "doctor-manager": "Quản lý bác sĩ",
+            "admin-manager": "Quản lý admin",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD redux user",
+            "clinic": "Phòng khám",
+            "clinic-manager": "Quản lý phòng khám",
+            "speciality": "Chuyên khoa",
+            "speciality-manager": "Quản lý chuyên khoa",
+            "handbook": "Cẩm nang ",
+            "handbook-manager": "Quản lý cẩm nang"
         }
     },
     "system": {
@@ -78,10 +91,14 @@
             "fail-to-load-fouser": "Không thể tải về danh sách người dùng",
             "user-id": "Mã người sử dụng",
             "usertype": "Loại người dùng",
-            "username": "Tên người dùng",
-            "fullname": "Tên đầy đủ",
+            "userManager": "Quản lý người dùng",
+            "addAnUser": "THÊM NGƯỚI DÙNG",
+            "stt": "Số TT",
+            "email": "Thư điện tử",
+            "firstname": "Tên",
+            "lastname": "Họ & Đệm",
+            "address": "Địa chỉ",
             "mobile": "Số điện thoại",
-            "email": "Email",
             "status": "Trạng thái",
             "add-user": "Thêm người dùng",
             "edit-user": "Sửa thông tin người dùng",

@@ -1,10 +1,9 @@
-//src13
 .about-content {
   display: flex;
   align-items: center;
 
   .about-left {
-    flex: 1; //22ms25ss
+    flex: 1;
   }
 
   .about-right {
@@ -19,7 +18,7 @@
 
     .about-pic1 {
       width: 162px;
-      background-size: 142px 30px; //v60xx1
+      background-size: 142px 30px;
       background-image: url('../../../assets/images/logosMedia/suckhoedoisong.png');
     }
 

@@ -5,16 +5,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-//src13, speciality2
 class Speciality extends Component {
   render() {
-    // const settings = {
-    //   infinite: false,
-    //   speed: 500,
-    //   slidesToShow: 4,
-    //   slidesToScroll: 2,
-    // };
-
     return (
       <>
         <div className='container-section'>
@@ -24,7 +16,6 @@ class Speciality extends Component {
               <span className='section-moreBtn'>Xem thêm</span>
             </div>
             <div className='section-body'>
-              {/* //20ms05ss */}
               <Slider {...this.props.settings}>
                 <div href='##' className='section-blocks'>
                   <div className='section-content-pics speciality-pic1'></div>

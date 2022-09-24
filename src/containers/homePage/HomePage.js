@@ -5,7 +5,7 @@ import HomeHeader from './section/HomeHeader';
 import Speciality from './section/Specialty';
 import MedicalFacility from './section/MedicalFacility';
 import Doctors from './section/Doctors';
-import Category from './section/Category';
+import Handbook from './section/Handbook';
 import About from './section/About';
 import HomeFooter from './section/HomeFooter';
 
@@ -21,12 +21,10 @@ class HomePage extends Component {
     return (
       <>
         <HomeHeader />
-
-        {/* v59xx1, 20ms05ss */}
         <Speciality settings={settings} />
         <MedicalFacility settings={settings} />
         <Doctors settings={settings} />
-        <Category
+        <Handbook
           settings={{ ...settings, slidesToShow: 2, slidesToScroll: 1 }}
         />
         <About />

@@ -1,5 +1,9 @@
 import actionTypes from './actionTypes';
 
+export const activeMenu = () => ({
+  type: actionTypes.ACTIVE_MENU,
+});
+
 export const addUserSuccess = () => ({
   type: actionTypes.ADD_USER_SUCCESS,
 });

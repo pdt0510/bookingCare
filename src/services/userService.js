@@ -1,6 +1,20 @@
 import axios from '../axios';
 import * as apiSupplies from '../connectSupplyFE/apiSupplies';
 
+export const allCode = (newData) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const { apiUrl, userUpdatedApi } = apiSupplies.apiUrls;
+      const data = await axios.patch(apiUrl + userUpdatedApi, {
+        ...newData,
+      });
+      resolve(data);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
 export const updateUser = (newData) => {
   return new Promise(async (resolve, reject) => {
     try {

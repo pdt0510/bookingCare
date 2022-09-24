@@ -1,4 +1,3 @@
-//src13, 9ms34ss, 15ms48ss, specialty1
 .specialty-content {
   padding: 20px 0 30px;
 
@@ -29,7 +28,6 @@
     margin: 28px 0 4px;
   }
 
-  // 45ms33ss
   .slick-arrow {
     width: 48px;
     height: 46px;
@@ -40,17 +38,14 @@
     top: 0;
   }
 
-  // 45ms33ss
   .slick-prev {
     transform: translate(-50%, 125%);
   }
 
-  // 45ms33ss
   .slick-next {
     transform: translate(50%, 125%);
   }
 
-  // 45ms33ss
   .slick-prev:hover {
     background-color: #c6cac9;
   }
@@ -58,7 +53,6 @@
     background-color: #c6cac9;
   }
 
-  // 45ms33ss
   .slick-prev:before,
   .slick-next:before {
     font-size: 24px;
@@ -70,14 +64,12 @@
     margin: 0px 6px;
     cursor: pointer;
 
-    // v57xx1
     &:hover > .specialty-content-text {
       color: #45c3d2;
     }
 
     .specialty-content-pics {
-      /* height: 156px; */
-      padding-top: 53%; //relative height
+      padding-top: 53%;
     }
 
     .specialty-content-text {
@@ -87,7 +79,7 @@
 
     .specialty-content-pic1 {
       background: url('../../../assets/images/specialty/120331-co-xuong-khop.jpg')
-        center center no-repeat; // 55ms01ss
+        center center no-repeat;
     }
 
     .specialty-content-pic2 {

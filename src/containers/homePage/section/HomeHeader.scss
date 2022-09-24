@@ -15,7 +15,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 10;
+    z-index: 1000;
     background-color: white;
 
     .header-content-left {
@@ -69,21 +69,32 @@
         color: #45c3d2;
       }
 
-      .switch-to-vi {
-        cursor: pointer;
+      //src14, 14ms59ss
+      .home-header-lang {
         margin-left: 32px;
 
-        &.active {
+        .active {
           color: blue;
         }
       }
 
-      .switch-to-en {
-        cursor: pointer;
-        &.active {
-          color: blue;
-        }
-      }
+      // .switch-lang {
+      //   .switch-to-vi {
+      //     cursor: pointer;
+      //     margin-left: 32px;
+
+      //     &.active {
+      //       color: blue;
+      //     }
+      //   }
+
+      //   .switch-to-en {
+      //     cursor: pointer;
+      //     &.active {
+      //       color: blue;
+      //     }
+      //   }
+      // }
     }
   }
 }

@@ -1,11 +1,12 @@
 @import '../styles/common.scss';
 
-// 23ms04ss
 .content-container {
-  height: 96vh;
-}
+  height: 100vh;
 
-// .main-container {
-//   height: 98vh;
-//   overflow: auto;
-// }
+  // 14ms59ss
+  .switch-lang {
+    display: inline-block;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}

@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Category.scss';
+import './Handbook.scss';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-//src13,
-class Category extends Component {
+class Handbook extends Component {
   render() {
     return (
       <>
@@ -20,32 +19,32 @@ class Category extends Component {
               </div>
               <div className='section-body'>
                 <Slider {...this.props.settings}>
-                  <div href='##' className='section-blocks category-blocks'>
-                    <div className='category-pics category-pic1'></div>
-                    <div className='section-content-text category-content-text'>
+                  <div href='##' className='section-blocks handbook-blocks'>
+                    <div className='handbook-pics handbook-pic1'></div>
+                    <div className='section-content-text handbook-content-text'>
                       Review Nha khoa 360 Dental có uy tín không? Dịch vụ thế
                       mạnh
                     </div>
                   </div>
 
-                  <div href='##' className='section-blocks category-blocks'>
-                    <div className='category-pics category-pic2'></div>
-                    <div className='section-content-text category-content-text'>
+                  <div href='##' className='section-blocks handbook-blocks'>
+                    <div className='handbook-pics handbook-pic2'></div>
+                    <div className='section-content-text handbook-content-text'>
                       7 bệnh viện, phòng khám chấn thương chỉnh hình uy tín tại
                       TP.HCM
                     </div>
                   </div>
 
-                  <div href='##' className='section-blocks category-blocks'>
-                    <div className='category-pics category-pic3'></div>
-                    <div className='section-content-text category-content-text'>
+                  <div href='##' className='section-blocks handbook-blocks'>
+                    <div className='handbook-pics handbook-pic3'></div>
+                    <div className='section-content-text handbook-content-text'>
                       8 bệnh viện, phòng khám Hô hấp uy tín tại TP.HCM
                     </div>
                   </div>
 
-                  <div href='##' className='section-blocks category-blocks'>
-                    <div className='category-pics category-pic4'></div>
-                    <div className='section-content-text category-content-text'>
+                  <div href='##' className='section-blocks handbook-blocks'>
+                    <div className='handbook-pics handbook-pic4'></div>
+                    <div className='section-content-text handbook-content-text'>
                       13 bác sĩ Da liễu giỏi và uy tín tại TP.HCM{' '}
                     </div>
                   </div>
@@ -67,4 +66,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Category);
+export default connect(mapStateToProps, mapDispatchToProps)(Handbook);

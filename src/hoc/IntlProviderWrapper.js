@@ -17,11 +17,12 @@ const messages = LanguageUtils.getFlattenedMessages();
 class IntlProviderWrapper extends Component {
   render() {
     const { children, language } = this.props;
+
     return (
       <IntlProvider
         locale={language}
         messages={messages[language]}
-        defaultLocale='vi' //42ms30ss
+        defaultLocale={language} //42ms30ss
       >
         {children}
       </IntlProvider>

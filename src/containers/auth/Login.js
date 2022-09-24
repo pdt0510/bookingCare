@@ -10,7 +10,7 @@ class Login extends Component {
   state = {
     email: '',
     message: '',
-    password: '', 
+    password: '',
     isDisplayedPassword: false,
   };
 
@@ -33,6 +33,7 @@ class Login extends Component {
 
     try {
       const isLogged = await userService.loginApi(email, password);
+
       if (isLogged.errCode === 0) {
         userLoginSuccess(isLogged.user);
 
@@ -57,6 +58,7 @@ class Login extends Component {
 
   render() {
     const { isDisplayedPassword, email, password, message } = this.state;
+
     return (
       <>
         <div className='login-background'>
@@ -104,7 +106,6 @@ class Login extends Component {
                       ></i>
                     )}
                   </a>
-                  {/* 26ms25ss */}
                   <span className='col-12 mt-2 login-message'>
                     {message ? message : ''}
                   </span>

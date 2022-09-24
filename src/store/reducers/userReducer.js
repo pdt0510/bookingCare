@@ -5,13 +5,14 @@ const initialState = {
   userInfo: null,
 };
 
-const appReducer = (state = initialState, action) => {
+//src14
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.USER_LOGIN_SUCCESS:
       return {
         ...state,
         isLoggedIn: true,
-        userInfo: action.user,
+        userInfo: action.userInfo, //7ms51ss
       };
     case actionTypes.USER_LOGIN_FAIL:
       return { ...state };
@@ -26,4 +27,4 @@ const appReducer = (state = initialState, action) => {
   }
 };
 
-export default appReducer;
+export default userReducer;

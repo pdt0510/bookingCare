@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './About.scss';
 
-//src13, 18ms22ss
 class About extends Component {
   render() {
     return (
@@ -17,9 +16,8 @@ class About extends Component {
             <div className='section-body'>
               <div className='about-content'>
                 <div className='about-left'>
-                  {/* 19ms55ss */}
                   <iframe
-                    width='100%' //22ms25ss
+                    width='100%'
                     height='410px'
                     src='https://www.youtube.com/embed/FyDQljKtWnI'
                     title='CÀ PHÊ KHỞI NGHIỆP VTV1 - BOOKINGCARE - HỆ THỐNG ĐẶT LỊCH KHÁM TRỰC TUYẾN'

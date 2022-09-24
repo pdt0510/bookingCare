@@ -60,19 +60,21 @@ class HomeHeader extends Component {
               <span className='header-mid-text2'>
                 <FormattedMessage id='home-header.support' />
               </span>
-              <span
-                className={`switch-to-vi ${language === 'vi' ? 'active' : ''}`}
-                onClick={() => this.changeLangs(LANGUAGES.VI)}
-              >
-                VI
-              </span>
-              <span>-</span>
-              <span
-                className={`switch-to-en ${language === 'en' ? 'active' : ''}`}
-                onClick={() => this.changeLangs(LANGUAGES.EN)}
-              >
-                EN
-              </span>
+              <div className='switch-lang home-header-lang'>
+                <span
+                  className={`${language === 'vi' ? 'active' : ''}`}
+                  onClick={() => this.changeLangs(LANGUAGES.VI)}
+                >
+                  VI
+                </span>
+                <span>-</span>
+                <span
+                  className={`${language === 'en' ? 'active' : ''}`}
+                  onClick={() => this.changeLangs(LANGUAGES.EN)}
+                >
+                  EN
+                </span>
+              </div>
             </div>
           </div>
         </div>

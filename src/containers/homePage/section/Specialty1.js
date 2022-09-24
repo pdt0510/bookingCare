@@ -1,9 +1,6 @@
-//src13, specialty1, 9ms34ss
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Specialty.scss';
-
-// 30ms37ss
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -18,7 +15,6 @@ class Specialty extends Component {
     };
 
     return (
-      // 15ms48ss
       <>
         <div className='specialty-content'>
           <div className='specialty-title'>
@@ -26,7 +22,6 @@ class Specialty extends Component {
             <span className='specialty-seeMore'>Xem thêm</span>
           </div>
           <div className='specialty-body'>
-            {/* 30ms37ss */}
             <Slider {...settings}>
               <div href='##' className='specialty-blocks'>
                 <div className='specialty-content-pics specialty-content-pic1'></div>
