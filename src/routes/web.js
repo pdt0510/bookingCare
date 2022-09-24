@@ -44,16 +44,24 @@ const initWebRoutes = (app) => {
     userCreatedApi,
     userUpdatedApi,
     userDeletedApi,
+    allCodeApi,
   } = apiSupplies.apiUrls;
 
-  const { loginFn, userListFn, userCreatedFn, userUpdatedFn, userDeletedFn } =
-    apiController;
+  const {
+    loginFn,
+    userListFn,
+    userCreatedFn,
+    userUpdatedFn,
+    userDeletedFn,
+    allcodeFn,
+  } = apiController;
 
   appRouters.post(apiUrl + loginApi, loginFn);
   appRouters.get(apiUrl + userListedApi, userListFn);
   appRouters.post(apiUrl + userCreatedApi, userCreatedFn);
   appRouters.delete(apiUrl + userDeletedApi, userDeletedFn);
   appRouters.patch(apiUrl + userUpdatedApi, userUpdatedFn);
+  appRouters.get(apiUrl + allCodeApi, allcodeFn); //23ms06ss
   return app.use(homeUrl, appRouters);
 };
 

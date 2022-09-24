@@ -6,6 +6,7 @@ export const apiUrls = {
   userCreatedApi: '/user-created',
   userDeletedApi: '/user-deleted',
   userUpdatedApi: '/user-updated',
+  allCodeApi: '/allcode',
 };
 
 export const errStates = {
@@ -27,10 +28,10 @@ export const errStates = {
   incorrectInfo: {
     errCode: 3,
     status: 406, // Not Acceptable
-    accMes: 'Your account is incorrect',
-    emailMes: 'Incorrect email',
-    passwordConfirmedMes: 'Incorrect password',
     idMes: 'Incorrect id',
+    emailMes: 'Incorrect email',
+    accMes: 'Your account is incorrect',
+    passwordConfirmedMes: 'Incorrect password',
   },
   missingParams: {
     errCode: 4,

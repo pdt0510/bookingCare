@@ -3,6 +3,7 @@ import db from '../models/index';
 import bcrypt from 'bcryptjs';
 import moment from 'moment';
 
+//src14
 const checkUserEmail = (email) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -43,7 +44,45 @@ const hashingPassword = (password) => {
   });
 };
 
-// v51xx2
+//23ms06ss
+export const allCodeApi = (typeVal, keymapVal) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let data = {};
+      let allCodes = null;
+      const { noErrors, notFound } = apiSupplies.errStates;
+
+      //32ms45ss
+      if (typeVal === 'ALL' && keymapVal === 'ALL') {
+        allCodes = await db.allcodes.findAll();
+      } else if (typeVal && keymapVal === '') {
+        allCodes = await db.allcodes.findAll({
+          where: { type: typeVal },
+        });
+      } else {
+        allCodes = await db.allcodes.findAll({
+          where: { type: typeVal, keymap: keymapVal },
+        });
+      }
+
+      if (allCodes.length) {
+        data = {
+          ...noErrors,
+          allCodes,
+        };
+      } else {
+        data = {
+          ...notFound,
+          allCodes: [],
+        };
+      }
+      resolve(data);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
 export const userDeletedApi = (id) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -68,10 +107,7 @@ export const userUpdatedApi = (clientData) => {
       const { noErrors, notFound } = apiSupplies.errStates;
       let data = { ...notFound, user: {} };
       const isUpdated = await db.users
-        .update(
-          { ...clientData }, //v52xx2
-          { where: { id: clientData.id } },
-        )
+        .update({ ...clientData }, { where: { id: clientData.id } })
         .then((res) => {
           const isSuccessed = 1;
           return res[0] === isSuccessed ? true : false;
@@ -115,12 +151,13 @@ export const userCreatedApi = (clientData) => {
         const anNewUser = await db.users
           .findOrCreate({
             where: { email: clientData.email },
-            attributes: { exclude: ['passwordConfirmed'] }, //v52xx2
+            attributes: { exclude: ['passwordConfirmed'] },
 
             defaults: {
-              ...clientData, //v52xx2
+              ...clientData,
               password: hashedPassword,
-              gender: clientData.gender === '1' ? true : false, //v52xx6: post to server
+              // gender: clientData.gender === '1' ? true : false,
+              gender: clientData.gender, //37ms20ss
             },
           })
           .then((res) => {
@@ -197,13 +234,14 @@ export const handleUserLogin = (email, password) => {
       let data = {
         errCode: incorrectInfo.errCode,
         message: incorrectInfo.accMes,
+        status: incorrectInfo.status,
         user: {},
       };
 
       if (isExist) {
         const userDb = await db.users.findOne({
           where: { email },
-          attributes: ['email', 'password', 'roleId'],
+          attributes: ['email', 'password', 'roleId', 'firstName'], //7ms51ss
         });
 
         if (userDb) {
@@ -220,7 +258,6 @@ export const handleUserLogin = (email, password) => {
           }
         }
       }
-
       resolve(data);
     } catch (error) {
       reject(error);

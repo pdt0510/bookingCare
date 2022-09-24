@@ -1,12 +1,32 @@
 import * as apiServices from '../services/apiServices';
 import * as apiSupplies from '../connectSupply/apiSupplies';
 
+//src14, 23ms06ss
+export const allcodeFn = async (req, res) => {
+  const objParam = req.body;
+  let data, typeVal, keymapVal;
+
+  // 32ms45ss, ad dùng - way 1
+  // const query = req.query;
+  // console.log('query ----', query);
+
+  //32ms45ss, mình dùng - way 2
+  if (Object.keys(objParam).length === 0) {
+    typeVal = keymapVal = 'ALL'; //empty key-value
+  } else {
+    for (const key in objParam) {
+      typeVal = key;
+      keymapVal = objParam[key];
+    }
+  }
+  data = await apiServices.allCodeApi(typeVal, keymapVal);
+  return res.status(data.status).json(data);
+};
+
 export const userUpdatedFn = async (req, res) => {
   let data = null;
   const id = +req.body.id;
   const { fieldRequired, incorrectInfo } = apiSupplies.errStates;
-
-  console.log('userUpdatedFn req.body: ', req.body); //v51xx2
 
   if (!id || typeof id !== 'number') {
     data = {
@@ -80,8 +100,6 @@ export const userDeletedFn = async (req, res) => {
   const id = +req.body.id;
   let data = null;
   const { incorrectInfo } = apiSupplies.errStates;
-
-  // console.log('userDeletedFn req.body', req.body); //v51xx2
 
   if (!id || typeof id !== 'number') {
     data = {

@@ -10,8 +10,8 @@ const types = {
 const tableInfo = {
   tableName: 'allcodes',
   keyValueCols: [
-    `key-${types.STRING}`,
     `type-${types.STRING}`,
+    `keymap-${types.STRING}`, //13ms22ss, `key-${types.STRING}`,
     `valueEN-${types.STRING}`,
     `valueVI-${types.STRING}`,
   ],
@@ -59,6 +59,12 @@ module.exports = {
     console.log('colsTypes create-allcode --------------');
 
     await queryInterface.createTable(`${tableInfo.tableName}`, {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
       ...colsTypes,
       createdAt: {
         allowNull: false,
