@@ -11,7 +11,7 @@ const tableInfo = {
   tableName: 'allcodes',
   keyValueCols: [
     `type-${types.STRING}`,
-    `keymap-${types.STRING}`, //13ms22ss, `key-${types.STRING}`,
+    `keymap-${types.STRING}`,
     `valueEN-${types.STRING}`,
     `valueVI-${types.STRING}`,
   ],
@@ -56,7 +56,6 @@ const handleColTypes = (colTypeList, sequelizeList = true) => {
 module.exports = {
   async up(queryInterface, Sequelize) {
     const colsTypes = handleColTypes(Sequelize);
-    console.log('colsTypes create-allcode --------------');
 
     await queryInterface.createTable(`${tableInfo.tableName}`, {
       id: {

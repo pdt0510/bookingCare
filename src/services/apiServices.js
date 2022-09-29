@@ -3,7 +3,6 @@ import db from '../models/index';
 import bcrypt from 'bcryptjs';
 import moment from 'moment';
 
-//src14
 const checkUserEmail = (email) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -44,7 +43,6 @@ const hashingPassword = (password) => {
   });
 };
 
-//23ms06ss
 export const allCodeApi = (typeVal, keymapVal) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -52,7 +50,6 @@ export const allCodeApi = (typeVal, keymapVal) => {
       let allCodes = null;
       const { noErrors, notFound } = apiSupplies.errStates;
 
-      //32ms45ss
       if (typeVal === 'ALL' && keymapVal === 'ALL') {
         allCodes = await db.allcodes.findAll();
       } else if (typeVal && keymapVal === '') {
@@ -156,8 +153,8 @@ export const userCreatedApi = (clientData) => {
             defaults: {
               ...clientData,
               password: hashedPassword,
-              // gender: clientData.gender === '1' ? true : false,
-              gender: clientData.gender, //37ms20ss
+
+              gender: clientData.gender,
             },
           })
           .then((res) => {
@@ -241,7 +238,7 @@ export const handleUserLogin = (email, password) => {
       if (isExist) {
         const userDb = await db.users.findOne({
           where: { email },
-          attributes: ['email', 'password', 'roleId', 'firstName'], //7ms51ss
+          attributes: ['email', 'password', 'roleId', 'firstName'],
         });
 
         if (userDb) {

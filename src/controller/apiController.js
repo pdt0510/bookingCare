@@ -1,24 +1,20 @@
 import * as apiServices from '../services/apiServices';
 import * as apiSupplies from '../connectSupply/apiSupplies';
 
-//src14, 23ms06ss
+//src15
 export const allcodeFn = async (req, res) => {
   const objParam = req.body;
   let data, typeVal, keymapVal;
 
-  // 32ms45ss, ad dùng - way 1
-  // const query = req.query;
-  // console.log('query ----', query);
-
-  //32ms45ss, mình dùng - way 2
   if (Object.keys(objParam).length === 0) {
-    typeVal = keymapVal = 'ALL'; //empty key-value
+    typeVal = keymapVal = 'ALL';
   } else {
     for (const key in objParam) {
       typeVal = key;
       keymapVal = objParam[key];
     }
   }
+
   data = await apiServices.allCodeApi(typeVal, keymapVal);
   return res.status(data.status).json(data);
 };

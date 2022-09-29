@@ -61,7 +61,7 @@ const initWebRoutes = (app) => {
   appRouters.post(apiUrl + userCreatedApi, userCreatedFn);
   appRouters.delete(apiUrl + userDeletedApi, userDeletedFn);
   appRouters.patch(apiUrl + userUpdatedApi, userUpdatedFn);
-  appRouters.get(apiUrl + allCodeApi, allcodeFn); //23ms06ss
+  appRouters.get(apiUrl + allCodeApi, allcodeFn);
   return app.use(homeUrl, appRouters);
 };
 

@@ -23,8 +23,7 @@ export const createNewUser = (data) => {
         password: hashedPassword,
         firstName: data.firstname,
         lastName: data.lastname,
-        // gender: data.gender === '1' ? true : false,
-        gender: data.gender, //37ms20ss
+        gender: data.gender,
         address: data.address,
         phoneNumber: data.phoneNumber,
         roleId: data.roleId,
