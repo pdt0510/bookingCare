@@ -20,7 +20,6 @@ import './App.scss';
 
 import CustomScrollbars from '../components/CustomScrollbars';
 
-//src14
 class App extends Component {
   handlePersistorState = () => {
     const { persistor } = this.props;
@@ -46,9 +45,6 @@ class App extends Component {
         <Router history={history}>
           <div className='main-container'>
             <ConfirmModal />
-            {/* 2ms48ss */}
-            {/* {this.props.isLoggedIn && <Header />} */}
-
             <div className='content-container'>
               <CustomScrollbars>
                 <Switch>

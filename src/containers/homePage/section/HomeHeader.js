@@ -62,14 +62,14 @@ class HomeHeader extends Component {
               </span>
               <div className='switch-lang home-header-lang'>
                 <span
-                  className={`${language === 'vi' ? 'active' : ''}`}
+                  className={`${language === LANGUAGES.VI ? 'active' : ''}`}
                   onClick={() => this.changeLangs(LANGUAGES.VI)}
                 >
                   VI
                 </span>
                 <span>-</span>
                 <span
-                  className={`${language === 'en' ? 'active' : ''}`}
+                  className={`${language === LANGUAGES.EN ? 'active' : ''}`}
                   onClick={() => this.changeLangs(LANGUAGES.EN)}
                 >
                   EN

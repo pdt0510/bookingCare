@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+import { textLangs } from '../../connectSupplyFE/otherSupplies';
 import { userService } from '../../services';
 import ModalUser from './ModalUser';
 import './UserManage.scss';
-import { userManageLangs } from './userManageLangs';
 
-//src14
 class UserManage extends Component {
   state = {
     isOpen: false,
@@ -80,8 +79,7 @@ class UserManage extends Component {
         if (data.errCode === 0) {
           const userCreated = {
             ...data.user,
-            // gender: data.user.gender ? '1' : '0',
-            gender: data.user.gender, //37ms20ss
+            gender: data.user.gender,
           };
 
           const newList = [...this.state.userList];
@@ -116,14 +114,22 @@ class UserManage extends Component {
 
   toggleModalFn = () => {
     this.setState({
-      userEdit: null, //reset userEdit to null if valued or not
+      userEdit: null,
       isOpen: !this.state.isOpen,
     });
   };
 
   render() {
     const { userList, isOpen, message, userEdit } = this.state;
-    const { name1, name2, name3, name4, name5, name6, name7 } = userManageLangs; //v62xx1
+    const {
+      userManagerL,
+      addAnUserL,
+      sttL,
+      emailL,
+      firstnameL,
+      lastnameL,
+      addressL,
+    } = textLangs;
 
     const renderUserList = () => {
       return (
@@ -135,7 +141,7 @@ class UserManage extends Component {
             onClick={this.toggleModalFn}
           >
             <i className='fas fa-plus'></i>
-            {''} <FormattedMessage id={name2} />
+            {''} <FormattedMessage id={addAnUserL} />
           </a>
 
           {isOpen ? (
@@ -150,19 +156,19 @@ class UserManage extends Component {
             <thead className='table-success'>
               <tr>
                 <th scope='col'>
-                  <FormattedMessage id={name3} />
+                  <FormattedMessage id={sttL} />
                 </th>
                 <th scope='col'>
-                  <FormattedMessage id={name4} />
+                  <FormattedMessage id={emailL} />
                 </th>
                 <th scope='col'>
-                  <FormattedMessage id={name5} />
+                  <FormattedMessage id={firstnameL} />
                 </th>
                 <th scope='col'>
-                  <FormattedMessage id={name6} />
+                  <FormattedMessage id={lastnameL} />
                 </th>
                 <th scope='col'>
-                  <FormattedMessage id={name7} />
+                  <FormattedMessage id={addressL} />
                 </th>
                 <th scope='col'></th>
               </tr>
@@ -204,10 +210,8 @@ class UserManage extends Component {
 
     return (
       <div className='text-center'>
-        {/* <h3>Managing users</h3> */}
         <h3>
-          {/* v62xx1 */}
-          <FormattedMessage id={name1} />
+          <FormattedMessage id={userManagerL} />
         </h3>
         {userList ? renderUserList() : null}
       </div>

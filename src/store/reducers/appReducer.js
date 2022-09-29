@@ -10,7 +10,7 @@ const initContentOfConfirmModal = {
 const initialState = {
   started: true,
   language: 'vi',
-  systemMenuPath: '/system/user-manage', //39ms10ss
+  systemMenuPath: '/system/user-manage',
   contentOfConfirmModal: {
     ...initContentOfConfirmModal,
   },

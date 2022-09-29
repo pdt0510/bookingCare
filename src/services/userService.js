@@ -1,13 +1,12 @@
 import axios from '../axios';
 import * as apiSupplies from '../connectSupplyFE/apiSupplies';
 
-export const allCode = (newData) => {
+//48ms45ss,
+export const allCodeUser = (typeColVal, keymapColVal) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const { apiUrl, userUpdatedApi } = apiSupplies.apiUrls;
-      const data = await axios.patch(apiUrl + userUpdatedApi, {
-        ...newData,
-      });
+      const { apiUrl, allCodeApi } = apiSupplies.apiUrls;
+      const data = await axios.get(apiUrl + allCodeApi);
       resolve(data);
     } catch (error) {
       reject(error);

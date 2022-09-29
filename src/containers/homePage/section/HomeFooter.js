@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeFooter.scss';
 
-//src13, 4ms32ss
 class HomeFooter extends Component {
   render() {
     return (

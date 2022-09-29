@@ -5,14 +5,13 @@ const initialState = {
   userInfo: null,
 };
 
-//src14
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.USER_LOGIN_SUCCESS:
       return {
         ...state,
         isLoggedIn: true,
-        userInfo: action.userInfo, //7ms51ss
+        userInfo: action.userInfo,
       };
     case actionTypes.USER_LOGIN_FAIL:
       return { ...state };

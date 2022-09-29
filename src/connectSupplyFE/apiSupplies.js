@@ -6,6 +6,7 @@ export const apiUrls = {
   userCreatedApi: '/user-created',
   userDeletedApi: '/user-deleted',
   userUpdatedApi: '/user-updated',
+  allCodeApi: '/allcode',
 };
 
 export const errStates = {

@@ -34,7 +34,6 @@ class ModalUser extends Component {
     if (userEdit) {
       this.setState({
         ...userEdit,
-        // gender: `${userEdit.gender}`, // `..` for to be a string, 37ms20ss: no need
       });
     }
   };
@@ -140,7 +139,7 @@ class ModalUser extends Component {
   cancelHandle = () => {
     this.resettingForm();
     this.props.toggleModalFn();
-  };
+  }; 
 
   render() {
     const { toggleModalFn, userEdit } = this.props;
@@ -283,12 +282,9 @@ class ModalUser extends Component {
                     onChange={this.handleChange}
                   >
                     <option value=''>Select ---</option>
-                    {/* 37ms20ss */}
                     <option value='F'>Female</option>
                     <option value='M'>Male</option>
                     <option value='O'>Other</option>
-                    {/* <option value='0'>Female</option>
-                    <option value='1'>Male</option> */}
                   </Input>
                 </FormGroup>
               </Col>

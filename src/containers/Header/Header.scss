@@ -9,11 +9,13 @@
   color: $common-text-color;
   height: 40px;
   position: relative;
+
   .btn-logout {
     color: $common-text-color;
     line-height: 40px;
     height: 40px;
     padding: 0 10px;
+
     &:hover {
       background-color: darken($colormain, 5);
     }
@@ -23,7 +25,6 @@
     }
   }
 
-  //src14, 14ms59ss
   .header-lang {
     margin: 0 32px 0 auto;
     color: black;

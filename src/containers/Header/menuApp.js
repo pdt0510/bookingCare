@@ -10,37 +10,31 @@ const {
   userHandbookLink,
 } = routeLinks;
 
-//src14, 24ms37ss
 export const adminMenu = [
   //quan ly user
   {
-    //30ms16ss
     name: 'menu.admin.user-manager',
     menus: [
       {
-        name: 'menu.admin.crud', // 35ms43ss
+        name: 'menu.admin.crud',
         link: userManageLink,
       },
       {
-        name: 'menu.admin.crud-redux', // 35ms43ss
+        name: 'menu.admin.crud-redux',
         link: userReduxLink,
-
-        //40ms53ss
-        // name: 'menu.system.system-administrator.user-redux',
-        // link: '/system/user-redux',
       },
       {
-        name: 'menu.admin.doctor-manager', // 32ms33ss
+        name: 'menu.admin.doctor-manager',
         link: userDoctorLink,
       },
       {
-        name: 'menu.admin.admin-manager', // 32ms33ss
+        name: 'menu.admin.admin-manager',
         link: userAdminLink,
       },
     ],
   },
 
-  //quan ly phong kham, 40ms23ss
+  //quan ly phong kham,
   {
     name: 'menu.admin.clinic',
     menus: [
@@ -51,7 +45,7 @@ export const adminMenu = [
     ],
   },
 
-  //chuyen khoa, 42ms57ss
+  //chuyen khoa,
   {
     name: 'menu.admin.speciality',
     menus: [
@@ -62,7 +56,7 @@ export const adminMenu = [
     ],
   },
 
-  //cam nang, 42ms57ss
+  //cam nang,
   {
     name: 'menu.admin.handbook',
     menus: [
@@ -73,25 +67,3 @@ export const adminMenu = [
     ],
   },
 ];
-
-// export const adminMenu1 = [
-//   {
-//     //he thong
-//     name: 'menu.system.header',
-//     menus: [
-//       {
-//         name: 'menu.system.system-administrator.header',
-//         subMenus: [
-//           {
-//             name: 'menu.system.system-administrator.user-manage',
-//             link: '/system/user-manage',
-//           },
-//           {
-//             name: 'menu.system.system-administrator.product-manage',
-//             link: '/system/product-manage',
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// ];

@@ -1,4 +1,3 @@
-//src13, 19ms28ss
 import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
